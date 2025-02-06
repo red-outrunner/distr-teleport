@@ -73,6 +73,9 @@ Error Handling
 
 If any package fails to install, the error will be reported in the console output.
 
+If you wanna tweak it and have other packages edit the go file and build
+go build -o setup-rhel/setup-void/... ./main.go
+
 Notes
 
 Ensure your package repositories are properly configured for Void Linux and RHEL systems.
