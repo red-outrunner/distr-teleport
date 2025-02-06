@@ -75,6 +75,7 @@ If any package fails to install, the error will be reported in the console outpu
 
 If you wanna tweak it and have other packages edit the go file and build
 go build -o setup-rhel/setup-void/... ./main.go
+viola
 
 Notes
 
