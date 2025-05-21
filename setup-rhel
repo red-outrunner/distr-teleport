@@ -1,0 +1,39 @@
+#!/bin/bash
+
+set -e
+
+echo "Updating system..."
+sudo dnf update -y
+
+echo "Installing core packages via dnf..."
+sudo dnf install -y \
+  vim \
+  neovim \
+  golang \
+  kate \
+  konsole \
+  boxes \
+  mpv \
+  podman \
+  micro \
+  btop \
+  htop \
+  java-11-openjdk \
+  java-17-openjdk \
+  python3-pip \
+  lollypop \
+  vlc \
+  git \
+  okular \
+  gimp \
+  rawtherapee \
+  flatpak
+
+echo "Setting up Flathub..."
+sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+echo "Installing apps via Flatpak..."
+flatpak install -y flathub com.logseq.Logseq
+flatpak install -y flathub org.mixxx.Mixxx
+
+echo "Setup complete!"
