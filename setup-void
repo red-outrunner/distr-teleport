@@ -1,0 +1,39 @@
+#!/bin/bash
+
+set -e
+
+echo "Updating package index..."
+sudo xbps-install -Suy xbps
+
+echo "Installing core packages via xbps..."
+sudo xbps-install -y \
+  vim \
+  neovim \
+  go \
+  kate \
+  konsole \
+  boxes \
+  mpv \
+  podman \
+  micro \
+  btop \
+  htop \
+  openjdk11 \
+  openjdk17 \
+  python3-pip \
+  lollypop \
+  vlc \
+  git \
+  okular \
+  gimp \
+  rawtherapee \
+  flatpak
+
+echo "Setting up Flathub..."
+sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+echo "Installing apps via Flatpak..."
+flatpak install -y flathub com.logseq.Logseq
+flatpak install -y flathub org.mixxx.Mixxx
+
+echo "Setup complete!"
